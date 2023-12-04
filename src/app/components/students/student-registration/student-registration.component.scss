@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em auto;
+}
+
+.card {
+    width: 70%;
+    padding: 8px;
+    box-shadow: 10px;
+}
+
+.w-15 {
+    width: 15% !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.mt-8 {
+    margin-top: 8px;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.m-10 {
+    margin: 10px auto;
+}

@@ -1,0 +1,92 @@
+
+<div class="container">
+    <mat-card class="card">
+        <mat-card-header class="center">
+            <h4>{{headerName}}</h4>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="studentsFormGroup">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Student Code -->
+                        <mat-form-field class="w-100 m-10">
+                            <mat-label> Student Code </mat-label>
+                            <input matInput formControlName="studentCode" placeholder="Student Code">
+                            <mat-error
+                                *ngIf="studentsFormGroup.invalid">{{commonErrorMessage('studentCode')}}</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- First Name -->
+                        <mat-form-field class="w-100 m-10">
+                            <mat-label> First Name </mat-label>
+                            <input matInput formControlName="firstName" placeholder="First Name">
+                            <mat-error *ngIf="studentsFormGroup.invalid">{{commonErrorMessage('firstName')}}</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- Last Name -->
+                        <mat-form-field class="w-100 m-10">
+                            <mat-label> Last Name </mat-label>
+                            <input matInput formControlName="lastName" placeholder="Last Name">
+                            <mat-error *ngIf="studentsFormGroup.invalid">{{commonErrorMessage('lastName')}}</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- Department -->
+                        <mat-form-field class="w-100 m-10">
+                            <mat-label> Department </mat-label>
+                            <input matInput formControlName="department" placeholder="Department">
+                            <mat-error
+                                *ngIf="studentsFormGroup.invalid">{{commonErrorMessage('department')}}</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- Gender -->
+                        <mat-form-field class="w-100 m-10">
+                            <mat-select formControlName="gender" placeholder="Gender" matInput required>
+                                <mat-option *ngFor="let gender of genderValues" [value]="gender">
+                                    {{ gender }}
+                               </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="studentsFormGroup.invalid">{{commonErrorMessage('gender')}}</mat-error>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- Email -->
+                        <mat-form-field class="w-100 m-10">
+                            <mat-label> Email Id </mat-label>
+                            <input matInput formControlName="emailId" placeholder="Email Id" (blur)="checkEmailExist()">
+                            <mat-error *ngIf="studentsFormGroup.invalid">{{commonErrorMessage('emailId')}}</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- Date of Birth -->
+                        <mat-form-field class="w-100 m-10">
+                            <input matInput [matDatepicker]="dateOfBirth" placeholder="Date of Birth"
+                                formControlName="dateOfBirth">
+                            <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+                            <mat-datepicker #dateOfBirth></mat-datepicker>
+                            <mat-error
+                                *ngIf="studentsFormGroup.invalid">{{commonErrorMessage('dateOfBirth')}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row mt-8">
+                <div class="col-md-12 center">
+                    <button class="btn btn-danger w-15" (click)="resetForm()">Reset</button>
+                    <button class="btn btn-success w-15 ml-10" (click)="saveStudentDetails()">Save</button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

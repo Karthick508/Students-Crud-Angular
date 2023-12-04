@@ -1,0 +1,29 @@
+.add-stud-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    margin-bottom: 16px;
+    padding-right: 16px;
+}
+
+.add-icon {
+    position: relative;
+    top: 4px;
+}
+
+.add-text {
+    position: relative;
+    top: -2px;
+}
+
+.w-80 {
+    width: 90% !important;
+}
+
+th {
+    background-color: #FFF59D !important;
+}
+
+table > th > td {
+    border-radius: 1px solid #000;
+}
